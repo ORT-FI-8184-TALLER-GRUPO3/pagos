@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   build-dev:
-    uses: prfwork/pagos/.github/workflows/maven.yml@dev
+    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@dev
     with:
       CI_ENV: dev
       CONTENTFUL_ENVIRONMENT: 'develop'
