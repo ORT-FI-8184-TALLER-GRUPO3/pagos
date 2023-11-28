@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   build-dev:
-    uses: prfwork/.github/workflows/maven.yml@develop
+    uses: prfwork/pagos/.github/workflows/maven.yml@develop
     with:
       CI_ENV: dev
       CONTENTFUL_ENVIRONMENT: 'develop'
