@@ -1,4 +1,4 @@
-ca target
+cd target
 
 aws s3 sync ./ s3://$S3_ORIGIN_BUCKET --include "*.jar" --metadata-directive 'REPLACE' --cache-control no-cache,no-store,must-revalidate --delete
 
