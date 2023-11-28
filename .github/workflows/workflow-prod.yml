@@ -35,8 +35,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-dev:
-    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@dev
+  build-prod:
+    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@prod
     with:
       CI_ENV: prod
       CONTENTFUL_ENVIRONMENT: 'prod'
