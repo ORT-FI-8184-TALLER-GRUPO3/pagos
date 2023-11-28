@@ -23,11 +23,11 @@ on:
   push:
     branches:
       - test
-  pull_request:
-    branches: [ "test" ]
-  #repository_dispatch:
-  #  types:
-  #    - build-dev
+  #pull_request:
+  #  branches: [ "test" ]
+  repository_dispatch:
+    types:
+      - build-test
   
 
 concurrency:
