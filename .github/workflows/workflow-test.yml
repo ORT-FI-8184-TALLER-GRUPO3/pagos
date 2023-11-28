@@ -36,7 +36,7 @@ concurrency:
 
 jobs:
   build-test:
-    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@test
+    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@dev
     with:
       CI_ENV: test
       CONTENTFUL_ENVIRONMENT: 'test'
