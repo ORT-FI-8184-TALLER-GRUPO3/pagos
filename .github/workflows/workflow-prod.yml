@@ -1,4 +1,4 @@
-name: Github Action Workflow DEV
+name: Github Action Workflow PROD
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: Github Action Workflow DEV
+name: Github Action Workflow TEST
 
 on:
   workflow_dispatch:
