@@ -85,7 +85,21 @@ jobs:
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{secrets.AWS_DEFAULT_REGION}}
+    
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+  
+    - name: Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: ${{secrets.ECR_REPOSITORY}}
+        IMAGE_TAG: imagen_pagos
+      run: |
+          docker build -t payments-service:${{ github.sha }} .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
+    
     - name: S3 Deploy
       run: ./.github/scripts/deploy.sh
       shell: bash
