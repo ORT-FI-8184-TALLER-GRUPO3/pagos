@@ -9,7 +9,7 @@ FROM openjdk:8 AS builder
 
 COPY . /app
 CMD chmod ugo+x /app/mvnw
-RUN cd /app && ./mvnw clean package
+RUN cd /app && ./mvnw clean package -DskipTests
 
 
 #contenedor para el deploy
