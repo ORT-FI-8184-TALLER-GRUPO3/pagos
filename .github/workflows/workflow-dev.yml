@@ -40,6 +40,7 @@ jobs:
     with:
       CI_ENV: dev
       CONTENTFUL_ENVIRONMENT: 'develop'
+      ECR_REPOSITORY: ${{ vars.REPOSITORIO_ECS_DEV }}
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
