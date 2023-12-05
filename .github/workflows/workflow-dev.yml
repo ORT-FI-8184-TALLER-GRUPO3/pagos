@@ -36,7 +36,7 @@ concurrency:
 
 jobs:
   build-dev:
-    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@dev
+    uses: ORT-FI-8184-TALLER-GRUPO3/Devops/.github/workflows/cicd_con_aws.yml@main
     with:
       CI_ENV: dev
       CONTENTFUL_ENVIRONMENT: 'develop'
