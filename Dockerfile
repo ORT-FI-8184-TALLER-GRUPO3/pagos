@@ -1,20 +1,13 @@
-#contenedor para buildear
-#a mi no me andubo con alpine, pero dejo comentado por si a alguien le anda es mejor.
-#FROM openjdk:8-jdk-alpine
-FROM openjdk:8 AS builder
-
-#dejo esto comentado para usar argumentos y poder armar esto mas genérico
-#ARG JAR_FILE
-#COPY ${JAR_FILE} app.jar
-
+#1era etapa
+FROM maven:3.6-jdk-8-alpine AS builder
 COPY . /app
-CMD chmod ugo+x /app/mvnw
-RUN cd /app && ./mvnw clean package -DskipTests
+WORKDIR /app
+RUN mvn -e -B package -DskipTests
 
 
-#contenedor para el deploy
-FROM openjdk:8 
-#FROM openjdk:8-jdk-alpine
-COPY --from=builder /app/target/payments-service-example-0.0.1-SNAPSHOT.jar /app/payments-service-example.jar
+# 2da etapa
 
-CMD java -jar /app/payments-service-example.jar
+FROM openjdk:8-jre-alpine
+WORKDIR /app
+COPY --from=builder app/target/orders-service-example-0.0.1-SNAPSHOT.jar /app/
+CMD java -jar orders-service-example-0.0.1-SNAPSHOT.jar $APP_ARGS
