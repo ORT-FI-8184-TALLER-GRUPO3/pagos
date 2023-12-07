@@ -43,6 +43,9 @@ on:
       ECR_REPOSITORY:
          required: true
          type: string
+      SONAR_PROJECT:
+         required: true
+         type: string
     secrets:
       AWS_ACCESS_KEY_ID:
         required: true
@@ -60,6 +63,8 @@ on:
 jobs:
   SonarTest:
     uses: ./.github/workflows/sonarscan.yml
+    with:
+      SONAR_PROJECT: ${{ inputs.SONAR_PROJECT }}  
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   build:

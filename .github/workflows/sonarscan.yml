@@ -7,6 +7,10 @@ on:
    # types: [opened, synchronize, reopened]
   workflow_dispatch:
   workflow_call:
+    inputs:
+      SONAR_PROJECT:
+        required: true
+        type: string
     secrets:
       SONAR_TOKEN:
         required: true
@@ -39,4 +43,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ORT-FI-8184-TALLER-GRUPO3_pagos
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=${{ inputs.SONAR_PROJECT }} 
