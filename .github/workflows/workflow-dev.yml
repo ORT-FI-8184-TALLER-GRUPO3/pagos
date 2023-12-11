@@ -36,13 +36,17 @@ concurrency:
 
 jobs:
   build-dev:
-    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@dev
+    uses: ORT-FI-8184-TALLER-GRUPO3/Devops/.github/workflows/cicd_con_aws.yml@main
+#    uses: ORT-FI-8184-TALLER-GRUPO3/pagos/.github/workflows/maven.yml@dev
     with:
       CI_ENV: dev
       CONTENTFUL_ENVIRONMENT: 'develop'
+      ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY_DEV }}
+      SONAR_PROJECT:  ${{ vars.SONAR_PROJECT }}
     secrets:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN}}
       AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       S3_ORIGIN_BUCKET: ${{ secrets.S3_ORIGIN_BUCKET_DEV }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
