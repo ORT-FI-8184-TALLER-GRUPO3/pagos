@@ -16,3 +16,4 @@ en sonarcloud setear que en analisis no sea automatico, sino hay conflicto con e
 ORT-FI-8184-TALLER-GRUPO3pagos information Administration / Analysis Method   --> sacar el automatico
 prueba push
 prueba push
+prueba push test
